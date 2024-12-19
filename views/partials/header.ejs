@@ -1,0 +1,51 @@
+<header>
+    <div class="container">
+        <nav>
+            <a href="">
+                <h1>my<span>Blog</span></h1>
+            </a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="#" class="post" onclick="showPostModal()">Post</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero">
+            <img src="/images/hero.jpg" alt="">
+        </div>
+    </div>
+</header>
+
+<div class="modal" id="postModal">
+    <div class="modal-content">
+        <div class="container">
+            <span class="close-btn" onclick="closePostModal()">&times;</span>
+            <h2>Create a Post</h2>
+            <form action="/add" method="POST">
+                <label for="title">Title</label>
+                <input type="text" name="title" placeholder="Title" required>
+                <label for="content">Content</label>
+                <textarea name="content" placeholder="Content" required></textarea>
+                <button type="submit">Add Post</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showPostModal() {
+        document.getElementById('postModal').style.display = 'flex';
+    }
+
+    function closePostModal() {
+        document.getElementById('postModal').style.display = 'none';
+    }
+
+    window.onclick = function (event) {
+        const Addmodal = document.getElementById('postModal');
+        if (event.target === Addmodal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>

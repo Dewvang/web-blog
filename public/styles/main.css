@@ -1,0 +1,210 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 85%;
+    height: auto;
+    margin: 0 auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a{
+        text-decoration: none;
+        color: black;
+        span{
+            color: #FF6500;
+        }
+    }
+    ul{
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        li{
+            margin-left: 50px;
+        }
+        .post{
+            background-color: #FF6500;
+            color: white;
+            padding: 8px 24px;
+            font-weight: bold;
+            border-radius: 12px;
+        }
+    }
+}
+
+.hero{
+    margin-bottom: 100px;
+    img{
+        width: 100%; 
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.contend-wrap {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 คอลัมน์ */
+    gap: 20px;
+
+    .contend-box {
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        h3 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #0B192C;
+        }
+
+        p {
+            margin-top: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;  
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            color: #1E3E62;
+            
+        }
+
+        .contend-manage {
+            margin-top: auto; /* ดันให้ปุ่ม Edit/Delete อยู่ด้านล่างเสมอ */
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                padding: 8px;
+                width: 80px;
+                font-weight: bold;
+                border: 0;
+                color: white;
+                border-radius: 5px;
+                margin-left: 5px;
+                cursor: pointer;
+            }
+
+            .edit {
+                background-color: #1E3E62;
+            }
+
+            .delete {
+                background-color: #FF6500;
+            }
+        }
+    }
+}
+
+.modal {
+    display: none; /* ซ่อน Modal ตอนเริ่มต้น */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* สีพื้นหลังโปร่งแสง */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: left;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #FF6500;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.modal-content input,
+.modal-content textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.modal-content button {
+    background-color: #1E3E62;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Footer styling */
+footer {
+    margin-top: 100px;
+    background-color: #FFFFFF; /* Background color white */
+    color: #1E3E62; /* Text color */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-link {
+    color: #FF6500; /* Link color */
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.social-link:hover {
+    text-decoration: underline;
+}

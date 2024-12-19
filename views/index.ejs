@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head.ejs") %>
+
+<body>
+    <%- include("partials/header.ejs") %>
+    <div class="container">
+        <h2>Last Post</h2>
+        <div class="contend-wrap">
+            <% posts.forEach((post, index) => { %>
+                <div class="contend-box">
+                    <img src="/images/Thailand snapshot cover iso.jpg" alt="Post 1">
+                    <h3><%= post.title %></h3>
+                    <p><%= post.content %></p>
+                    <div class="contend-manage">
+                        <button class="edit" onclick="showEditModal(<%= index %>, '<%= post.title %>', '<%= post.content %>')">Edit</button>
+                        <form action="/delete/<%= index %>" method="POST" style="display:inline;">
+                            <button class="delete" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="container">
+                <span class="close-btn" onclick="closeEditModal()">&times;</span>
+                <h2>Edit Post</h2>
+                <form id="editForm" action="#" method="POST">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="editTitle" placeholder="Title" required>
+
+                    <label for="content">Content</label>
+                    <textarea name="content" id="editContent" placeholder="Content" required></textarea>
+
+                    <button type="submit">Update Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include("partials/footer.ejs") %>
+
+    <script>
+        function showEditModal(index, title, content) {
+            document.getElementById('editTitle').value = title;
+            document.getElementById('editContent').value = content;
+
+            const form = document.getElementById('editForm');
+            form.action = `/edit/${index}`;
+
+            document.getElementById('editModal').style.display = 'flex';
+        }
+
+
+        function closeEditModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            const editModal = document.getElementById('editModal');
+            if (event.target === editModal) {
+                closeEditModal();
+            }
+        }
+    </script>
+</body>
+
+</html>
